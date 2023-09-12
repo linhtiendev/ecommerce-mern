@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { Button } from "antd";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { decrement, increment } from "./redux/slides/counterSlice";
+import styled from "styled-components";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const count = useSelector((state) => state.counter.value);
+    const dispatch = useDispatch();
+
+    const Button = styled.button({
+        background: "blue",
+    });
+
+    return (
+        <div>
+            <div>
+                <Button
+                    aria-label="Increment value"
+                    onClick={() => dispatch(increment())}
+                >
+                    Increment
+                </Button>
+                <span>{count}</span>
+                <button
+                    aria-label="Decrement value"
+                    onClick={() => dispatch(decrement())}
+                >
+                    Decrement
+                </button>
+            </div>
+        </div>
+    );
 }
 
 export default App;
