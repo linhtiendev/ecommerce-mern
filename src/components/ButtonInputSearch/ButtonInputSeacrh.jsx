@@ -1,4 +1,3 @@
-import { Button, Input } from 'antd'
 import React from 'react'
 
 // icon ant-design
@@ -6,13 +5,26 @@ import {
   SearchOutlined,
 } from '@ant-design/icons';
 
+import InputComponent from '../InputComponent/InputComponent';
+import ButtonComponent from '../ButtonComponent/ButtonComponent';
+
 const ButtonInputSeacrh = (props) => {
     // truyen props
-    const {size, placeholder, textButton,} = props;
+    const { size, placeholder } = props;
   return (
     <div style={{ display: 'flex', backgroundColor: 'white'}}>
-      <Input size={size} placeholder={placeholder} bordered={false}/>
-      <Button style={{ border: 'none', borderRadius: '5px' }} size={size} bordered={false} icon={<SearchOutlined style={{ fontSize: '15px' }} />}>{textButton}</Button>
+      <InputComponent 
+        size={size} 
+        placeholder={placeholder} 
+        bordered={false}
+      />
+      <ButtonComponent 
+        styleButton={{ border: 'none' }} 
+        size={size} 
+        icon={<SearchOutlined style={{ fontSize: '15px' }} />} 
+        styleTextButton={{ fontSize: '15px' }}
+        textButton={'Tìm kiếm'} 
+      />
     </div>
   )
 }
