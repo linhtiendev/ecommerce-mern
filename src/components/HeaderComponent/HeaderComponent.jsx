@@ -22,7 +22,7 @@ import ButtonInputSeacrh from '../ButtonInputSearch/ButtonInputSeacrh';
 const HeaderComponent = () => {
   return (
     <>
-    <WrapperHeader gutter={16}>
+    <WrapperHeader>
       <Col span={6}>
         <WrapperTextHeader>
           LITISTORE
@@ -38,7 +38,7 @@ const HeaderComponent = () => {
         <WrapperHeaderAccount>
           <UserOutlined style={{ fontSize: '30px' }}/>
           <div>
-            <span>Đăng nhập / Đăng ký</span>
+            <WrapperTextHeaderSmall>Đăng nhập / Đăng ký</WrapperTextHeaderSmall>
             <div>
               <span>Tài khoản</span>
               <CaretDownOutlined />
