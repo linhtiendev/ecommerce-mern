@@ -7,6 +7,7 @@ import slider1 from '../../assets/images/slider/slider-ip15pro.png'
 import slider2 from '../../assets/images/slider/slider-oppo-reno10.png'
 import slider3 from '../../assets/images/slider/slider-ssgalaxy.jpg'
 import slider4 from '../../assets/images/slider/slider-kieslect.jpg'
+import CardComponent from '../../components/CardComponent/CardComponent'
 
 const HomePage = () => {
   const arr = ['TV', 'Laptop', 'Tu lanh']
@@ -25,12 +26,22 @@ const HomePage = () => {
         })}
       </WrapperTypeProduct>
     </div>
-    <div style={{ backgroundColor: '#efefef', padding: '30px 120px'}}>
+    <div style={{ backgroundColor: '#efefef', padding: '30px 120px', height: '1000px'}}>
       <SliderComponent
         sliderImage={[slider1, slider2, slider3, slider4]}
       />
-      <div>
-        hello
+      <div
+        style={{ 
+          marginTop: '20px', 
+          display: 'flex', 
+          alignItems: 'center', 
+          gap: '20px',
+          justifyContent: 'space-between',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+        }}
+      >
+        <CardComponent />
       </div>
     </div>
     </>
