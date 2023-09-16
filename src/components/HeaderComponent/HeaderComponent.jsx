@@ -40,7 +40,7 @@ const HeaderComponent = () => {
           <div>
             <WrapperTextHeaderSmall>Đăng nhập / Đăng ký</WrapperTextHeaderSmall>
             <div>
-              <span>Tài khoản</span>
+              <WrapperTextHeaderSmall>Tài khoản</WrapperTextHeaderSmall>
               <CaretDownOutlined />
             </div>
           </div>
