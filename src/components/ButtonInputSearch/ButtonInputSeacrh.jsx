@@ -19,11 +19,11 @@ const ButtonInputSeacrh = (props) => {
         bordered={false}
       />
       <ButtonComponent 
-        styleButton={{ border: 'none' }} 
+        styleButton={{ border: '#00483d'}} 
         size={size} 
         icon={<SearchOutlined style={{ fontSize: '15px' }} />} 
-        styleTextButton={{ fontSize: '15px' }}
-        textButton={'Tìm kiếm'} 
+        styleTextButton={{ fontSize: '15px'}}
+        textButton='Tìm kiếm' 
       />
     </div>
   )

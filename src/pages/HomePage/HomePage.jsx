@@ -1,6 +1,6 @@
 import React from 'react'
 import TypeProduct from '../../components/TypeProduct/TypeProduct'
-import { WrapperTypeProduct } from './style'
+import { WrapperButtonMoreOption, WrapperTypeProduct } from './style'
 import SliderComponent from '../../components/SliderComponent/SliderComponent'
 
 import slider1 from '../../assets/images/slider/slider-ip15pro.png'
@@ -44,8 +44,27 @@ const HomePage = () => {
         }}
       >
         <CardComponent />
+        <CardComponent />
+        <CardComponent />
+        <CardComponent />
+        <CardComponent />
       </div>
-      <NavbarComponent />
+      <div style={{ width: '100%', display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
+        <WrapperButtonMoreOption 
+        textButton='Xem thêm'
+        type='outline'
+        styleButton={{
+          border: '1px solid #00483d',
+          fontSize: '16px',
+          fontWeight: '500',
+          corlor: '#00483d',
+          width: '240px', height: '38px',
+          boxShadow: '2px 2px 2px gray',
+         }}
+      />
+      </div>
+      
+      {/* <NavbarComponent /> */}
     </div>
     </>
   )
