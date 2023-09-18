@@ -9,7 +9,6 @@ import slider3 from '../../assets/images/slider/slider-ssgalaxy.jpg'
 import slider4 from '../../assets/images/slider/slider-kieslect.jpg'
 
 import CardComponent from '../../components/CardComponent/CardComponent'
-import NavbarComponent from '../../components/NavbarComponent/NavbarComponent'
 
 const HomePage = () => {
   const arr = ['TV', 'Laptop', 'Tu lanh']
@@ -63,8 +62,6 @@ const HomePage = () => {
          }}
       />
       </div>
-      
-      {/* <NavbarComponent /> */}
     </div>
     </>
   )
