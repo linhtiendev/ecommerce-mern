@@ -1,6 +1,6 @@
 import React from 'react'
 import TypeProduct from '../../components/TypeProduct/TypeProduct'
-import { WrapperButtonMoreOption, WrapperTypeProduct } from './style'
+import { WrapperButtonMoreOption, WrapperProduct, WrapperTypeProduct } from './style'
 import SliderComponent from '../../components/SliderComponent/SliderComponent'
 
 import slider1 from '../../assets/images/slider/slider-ip15pro.png'
@@ -31,23 +31,15 @@ const HomePage = () => {
       <SliderComponent
         sliderImage={[slider1, slider2, slider3, slider4]}
       />
-      <div
-        style={{ 
-          marginTop: '20px', 
-          display: 'flex', 
-          alignItems: 'center', 
-          gap: '20px',
-          justifyContent: 'space-between',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-        }}
-      >
+      <WrapperProduct>
         <CardComponent />
         <CardComponent />
         <CardComponent />
         <CardComponent />
         <CardComponent />
-      </div>
+        <CardComponent />
+
+      </WrapperProduct>
       <div style={{ width: '100%', display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
         <WrapperButtonMoreOption 
         textButton='Xem thêm'
