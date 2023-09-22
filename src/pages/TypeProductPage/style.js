@@ -3,7 +3,6 @@ import { Col } from "antd";
 
 export const WrapperProducts = styled.div`
     display: flex;
-    justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
 `;
@@ -14,4 +13,5 @@ export const WrapperNavbar = styled(Col)`
     border-radius: 10px;
     padding: 10px;
     height: fit-content;
+    width: 200px;
 `;

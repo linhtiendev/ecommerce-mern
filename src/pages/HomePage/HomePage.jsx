@@ -15,7 +15,7 @@ const HomePage = () => {
 
   return (
     <>
-    <div style={{ padding: '0 120px'}}>
+    <div style={{ width: '1270px', margin: '0 auto'}}>
       <WrapperTypeProduct>
         {arr.map((item) => {
           return (
@@ -27,32 +27,35 @@ const HomePage = () => {
         })}
       </WrapperTypeProduct>
     </div>
-    <div style={{ backgroundColor: '#efefef', padding: '30px 120px', height: '1000px'}}>
-      <SliderComponent
-        sliderImage={[slider1, slider2, slider3, slider4]}
-      />
-      <WrapperProduct>
-        <CardComponent />
-        <CardComponent />
-        <CardComponent />
-        <CardComponent />
-        <CardComponent />
-        <CardComponent />
-
-      </WrapperProduct>
-      <div style={{ width: '100%', display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
-        <WrapperButtonMoreOption 
-        textButton='Xem thêm'
-        type='outline'
-        styleButton={{
-          border: '1px solid #00483d',
-          fontSize: '16px',
-          fontWeight: '500',
-          corlor: '#00483d',
-          width: '240px', height: '38px',
-          boxShadow: '2px 2px 2px gray',
-         }}
-      />
+    <div style={{ width: '100%', backgroundColor: '#efefef'}}>
+      <div style={{ width: '1270px', margin: '0 auto', padding: '30px 0', height: '100%'}}>
+        <SliderComponent
+          sliderImage={[slider1, slider2, slider3, slider4]}
+        />
+        <WrapperProduct>
+          <CardComponent />
+          <CardComponent />
+          <CardComponent />
+          <CardComponent />
+          <CardComponent />
+          <CardComponent />
+          <CardComponent />
+          <CardComponent />
+        </WrapperProduct>
+        <div style={{ width: '100%', display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
+          <WrapperButtonMoreOption 
+          textButton='Xem thêm'
+          type='outline'
+          styleButton={{
+            border: '1px solid #00483d',
+            fontSize: '16px',
+            fontWeight: '500',
+            corlor: '#00483d',
+            width: '240px', height: '38px',
+            boxShadow: '2px 2px 2px gray',
+          }}
+        />
+        </div>
       </div>
     </div>
     </>

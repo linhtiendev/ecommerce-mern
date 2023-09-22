@@ -8,29 +8,31 @@ const TypeProductPage = () => {
   const onChange = () => {}
 
   return (
-    <div style={{ padding: '20px 120px', background: '#efefef', }}>
-      <Row style={{ flexWrap: 'nowrap' }}>
-          <WrapperNavbar span={4}>          
-            <NavbarComponent />
-          </WrapperNavbar>
-          <Col span={20}>
-            <WrapperProducts>
-              <CardComponent />
-              <CardComponent /> 
-              <CardComponent /> 
-              <CardComponent /> 
-              <CardComponent /> 
-              <CardComponent /> 
-            </WrapperProducts>
-            <Pagination 
-              style={{ textAlign: 'center', marginTop: '20px' }}
-              defaultCurrent={2} 
-              total={500} 
-              onChange={onChange}
-            />
-          </Col>
-          
-      </Row>
+    <div style={{ width: '100%', background: '#efefef'}}>
+      <div style={{ width: '1270px', margin: '0 auto' , paddingTop: '20px'}}>
+        <Row style={{ flexWrap: 'nowrap' }}>
+            <WrapperNavbar span={5}>          
+              <NavbarComponent />
+            </WrapperNavbar>
+            <Col span={19} style={{ margin: '0 0 0 78px' }}>
+              <WrapperProducts>
+                <CardComponent />
+                <CardComponent /> 
+                <CardComponent /> 
+                <CardComponent /> 
+                <CardComponent /> 
+                <CardComponent /> 
+              </WrapperProducts>
+              <Pagination 
+                style={{ textAlign: 'center', marginTop: '20px' }}
+                defaultCurrent={2} 
+                total={500} 
+                onChange={onChange}
+              />
+            </Col>
+            
+        </Row>
+      </div>
     </div>
   )
 }

@@ -21,39 +21,39 @@ import ButtonInputSeacrh from '../ButtonInputSearch/ButtonInputSeacrh';
 
 const HeaderComponent = () => {
   return (
-    <>
-    <WrapperHeader>
-      <Col span={6}>
-        <WrapperTextHeader>
-          LITISTORE
-        </WrapperTextHeader>
-      </Col>
-      <Col span={12}>
-        <ButtonInputSeacrh
-          size='large'
-          placeholder='Tìm sản phẩm'
-        />
-      </Col>
-      <Col span={6} style={{ display: 'flex', gap: '20px' }}>
-        <WrapperHeaderAccount>
-          <UserOutlined style={{ fontSize: '30px' }}/>
-          <div>
-            <WrapperTextHeaderSmall>Đăng nhập / Đăng ký</WrapperTextHeaderSmall>
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <WrapperHeader>
+        <Col span={5}>
+          <WrapperTextHeader>
+            LITISTORE
+          </WrapperTextHeader>
+        </Col>
+        <Col span={12} >
+          <ButtonInputSeacrh
+            size='large'
+            placeholder='Tìm sản phẩm'
+          />
+        </Col>
+        <Col span={7} style={{ display: 'flex', gap: '130px', alignItems: 'center' }}>
+          <WrapperHeaderAccount>
+            <UserOutlined style={{ fontSize: '30px' }}/>
             <div>
-              <WrapperTextHeaderSmall>Tài khoản</WrapperTextHeaderSmall>
-              <CaretDownOutlined />
+              <WrapperTextHeaderSmall>Đăng nhập / Đăng ký</WrapperTextHeaderSmall>
+              <div>
+                <WrapperTextHeaderSmall>Tài khoản</WrapperTextHeaderSmall>
+                <CaretDownOutlined />
+              </div>
             </div>
+          </WrapperHeaderAccount>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <Badge count={4} size='small'>
+              <ShoppingCartOutlined style={{ fontSize: '25px', color: 'white' }} />
+            </Badge>
+            <WrapperTextHeaderSmall>Giỏ hàng</WrapperTextHeaderSmall>
           </div>
-        </WrapperHeaderAccount>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <Badge count={4} size='small'>
-            <ShoppingCartOutlined style={{ fontSize: '25px', color: 'white' }} />
-          </Badge>
-          <WrapperTextHeaderSmall>Giỏ hàng</WrapperTextHeaderSmall>
-        </div>
-      </Col>
-    </WrapperHeader>
-    </>
+        </Col>
+      </WrapperHeader>
+    </div>
   )
 }
 
