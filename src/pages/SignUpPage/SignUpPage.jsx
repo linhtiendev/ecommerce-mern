@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { WrapperContainerLeft, WrapperContainerRight, WrapperTextBlue } from './style'
 import { Image } from 'antd'
 import InputForm from '../../components/InputForm/InputForm'
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
 import imgLogin from '../../assets/images/imgtitle/login-bg.png'
-
+import {
+  EyeFilled,
+  EyeInvisibleFilled
+} from '@ant-design/icons';
 
 const SignUpPage = () => {
+  const [ isShowPassword, setIsShowPassword] = useState(false)
+  const [ isShowConfirmPassword, setIsShowConfirmPassword] = useState(false)
+
   return (
     <div style={{ 
       display: 'flex', 
@@ -37,8 +43,45 @@ const SignUpPage = () => {
             </div>
             <p style={{ marginBottom: '50px' }}>Đăng ký tài khoản</p>
             <InputForm  style={{ marginBottom: '10px' }} placeholder="Nhập Email"/>
-            <InputForm placeholder="Nhập mật khẩu" style={{ marginBottom: '10px' }}/>
-            <InputForm placeholder="Nhập lại mật khẩu" />
+            <div style={{ position: 'relative' }}>
+              <span 
+                style={{
+                  zIndex: '10',
+                  position: 'absolute',
+                  top: '11px',
+                  right: '8px'
+                }}>
+                  {
+                    isShowPassword 
+                      ? (<EyeFilled />) 
+                      : (<EyeInvisibleFilled />) 
+                  }
+              </span>
+              <InputForm 
+                placeholder="Nhập mật khẩu" 
+                  type={ isShowPassword ? 'text' : 'password' } 
+                  style={{ marginBottom: '10px' }}
+                />
+            </div>
+            <div style={{ position: 'relative' }}>
+              <span 
+                style={{
+                  zIndex: '10',
+                  position: 'absolute',
+                  top: '11px',
+                  right: '8px'
+                }}>
+                  {
+                    isShowConfirmPassword 
+                      ? (<EyeFilled />) 
+                      : (<EyeInvisibleFilled />) 
+                  }
+              </span>
+              <InputForm 
+                placeholder="Nhập lại mật khẩu" 
+                type={ isShowConfirmPassword ? 'text' : 'password' } 
+              />
+            </div>
             <ButtonComponent 
               textButton='Đăng Ký'
               type='outline'

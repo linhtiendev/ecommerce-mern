@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { WrapperContainerLeft, WrapperContainerRight, WrapperTextBlue } from './style'
 import InputForm from '../../components/InputForm/InputForm'
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
 import { Image } from 'antd'
 import imgLogin from '../../assets/images/imgtitle/login-bg.png'
 
+import {
+  EyeFilled,
+  EyeInvisibleFilled
+} from '@ant-design/icons';
+
 const SignInPage = () => {
+  const [ isShowPassword, setIsShowPassword] = useState(false)
+
   return (
     <div style={{ 
       display: 'flex', 
@@ -36,7 +43,22 @@ const SignInPage = () => {
             </div>
             <p style={{ marginBottom: '50px' }}>Đăng nhập hoặc tạo tài khoản</p>
             <InputForm  style={{ marginBottom: '10px' }} placeholder="Nhập Email"/>
-            <InputForm placeholder="Nhập mật khẩu" />
+            <div style={{ position: 'relative' }}>
+              <span 
+                style={{
+                  zIndex: '10',
+                  position: 'absolute',
+                  top: '11px',
+                  right: '8px'
+                }}>
+                  {
+                    isShowPassword 
+                      ? (<EyeFilled />) 
+                      : (<EyeInvisibleFilled />) 
+                  }
+              </span>
+              <InputForm placeholder="Nhập mật khẩu" type={ isShowPassword ? 'text' : 'password' } />
+            </div>
             <ButtonComponent 
               textButton='Đăng nhập'
               type='outline'
