@@ -4,7 +4,8 @@ import {
     WrapperCardStyle,
     WrapperDiscountText,
     WrapperPriceText,
-    WrapperRatingText
+    WrapperRatingText,
+    WrapperStyleTextSell
 } from './style'
 import { StarFilled } from '@ant-design/icons'
 import imgnew from '../../assets/images/imgtitle/new.png'
@@ -25,7 +26,7 @@ const CardComponent = () => {
                 <span style={{ marginRight: '5px' }}>
                     <span>4.95 </span><StarFilled style={{ fontSize: '12px', color: 'yellow' }} />
                 </span>
-                <span> | Đã bán 1000+</span>
+                <WrapperStyleTextSell> | Đã bán 1000+</WrapperStyleTextSell>
             </WrapperRatingText>
             <WrapperPriceText>
                 30.000.000đ
