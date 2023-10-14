@@ -10,11 +10,20 @@ import {
   EyeInvisibleFilled
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom'
+import * as UserService from '../../services/UserService'
+import { useMutationHook } from '../../hooks/useMutationHook'
+import Loading from '../../components/LoadingComponent/Loading'
 
 const SignInPage = () => {
   const [ isShowPassword, setIsShowPassword] = useState(false)
   const [ email, setEmail] = useState('')
   const [ password, setPassword] = useState('')
+
+  const mutation = useMutationHook(
+    data => UserService.loginUser(data)
+  )
+  const { data, isLoading } = mutation
+  console.log("mutation", mutation);
 
   const handleOnChangeEmail = (value) => {
     setEmail(value)
@@ -24,6 +33,10 @@ const SignInPage = () => {
   }
 
   const handleSignIn = () => {
+    mutation.mutate({
+      email,
+      password
+    })
     console.log("sign-in", email, password);
   }
 
@@ -88,22 +101,25 @@ const SignInPage = () => {
                 onChange={handleOnChangePassword}
               />
             </div>
-            <ButtonComponent 
-              disabled={!email.length || !password.length}
-              onClick={handleSignIn}
-              textButton='Đăng nhập'
-              type='outline'
-              styleButton={{
-                fontSize: '16px',
-                fontWeight: '500',
-                corlor: '#00483d',
-                margin: '40px 0 10px',
-                width: '100%', height: '40px',
-                boxShadow: '2px 2px 2px gray',
-                backgroundColor: '#00483d'
-              }}
-              styleTextButton={{ color: 'white' }}
-            />
+            {data?.status === "ERR" && <span style={{ color: 'red' }}>{data?.message}</span>}
+            <Loading isLoading={isLoading}>
+              <ButtonComponent 
+                disabled={!email.length || !password.length}
+                onClick={handleSignIn}
+                textButton='Đăng nhập'
+                type='outline'
+                styleButton={{
+                  fontSize: '16px',
+                  fontWeight: '500',
+                  corlor: '#00483d',
+                  margin: '40px 0 10px',
+                  width: '100%', height: '40px',
+                  boxShadow: '2px 2px 2px gray',
+                  backgroundColor: '#00483d'
+                }}
+                styleTextButton={{ color: 'white' }}
+              />
+            </Loading>
             <p><WrapperTextBlue>Quên mật khẩu?</WrapperTextBlue></p>
             <p>Chưa có tài khoản? <WrapperTextBlue onClick={handleNavigateSignUp}> Tạo tài khoản</WrapperTextBlue></p>
           </WrapperContainerRight>
