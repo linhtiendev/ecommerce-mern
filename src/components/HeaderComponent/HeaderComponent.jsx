@@ -19,10 +19,13 @@ import {
 } from '@ant-design/icons';
 import ButtonInputSeacrh from '../ButtonInputSearch/ButtonInputSeacrh';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const HeaderComponent = () => {
 
   const navigate = useNavigate()
+  // lay data redux
+  const user = useSelector((state) => state.user)
   const handleNavigateLogin = () => {
     navigate('/sign-in')
   }
@@ -44,13 +47,17 @@ const HeaderComponent = () => {
         <Col span={7} style={{ display: 'flex', gap: '130px', alignItems: 'center' }}>
           <WrapperHeaderAccount>
             <UserOutlined style={{ fontSize: '30px' }}/>
-            <div onClick={handleNavigateLogin} style={{ cursor: 'pointer'}}>
-              <WrapperTextHeaderSmall>Đăng nhập / Đăng ký</WrapperTextHeaderSmall>
-              <div>
-                <WrapperTextHeaderSmall>Tài khoản</WrapperTextHeaderSmall>
-                <CaretDownOutlined />
+            {user?.name ? (
+              <div style={{ cursor: 'pointer'}}>{user.name}</div>
+            ) : (
+              <div onClick={handleNavigateLogin} style={{ cursor: 'pointer'}}>
+                <WrapperTextHeaderSmall>Đăng nhập / Đăng ký</WrapperTextHeaderSmall>
+                <div>
+                  <WrapperTextHeaderSmall>Tài khoản</WrapperTextHeaderSmall>
+                  <CaretDownOutlined />
+                </div>
               </div>
-            </div>
+            )}
           </WrapperHeaderAccount>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <Badge count={4} size='small'>

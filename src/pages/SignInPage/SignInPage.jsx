@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { WrapperContainerLeft, WrapperContainerRight, WrapperTextBlue } from './style'
 import InputForm from '../../components/InputForm/InputForm'
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
 import { Image } from 'antd'
 import imgLogin from '../../assets/images/imgtitle/login-bg.png'
-
 import {
   EyeFilled,
   EyeInvisibleFilled
@@ -13,17 +12,42 @@ import { useNavigate } from 'react-router-dom'
 import * as UserService from '../../services/UserService'
 import { useMutationHook } from '../../hooks/useMutationHook'
 import Loading from '../../components/LoadingComponent/Loading'
+import { jwtDecode } from "jwt-decode";
+import { useDispatch } from "react-redux"
+import { updateUser } from '../../redux/slices/userSlice'
 
 const SignInPage = () => {
   const [ isShowPassword, setIsShowPassword] = useState(false)
   const [ email, setEmail] = useState('')
   const [ password, setPassword] = useState('')
+  const dispatch = useDispatch()
 
   const mutation = useMutationHook(
     data => UserService.loginUser(data)
   )
-  const { data, isLoading } = mutation
-  console.log("mutation", mutation);
+  const { data, isLoading, isSuccess } = mutation
+
+  useEffect(() => {
+    if (isSuccess) {
+      navigate('/')
+      console.log('data', data);
+      localStorage.setItem('access_token', data?.access_token)
+      if(data?.access_token){
+        const decoded = jwtDecode(data?.access_token)
+        console.log("decoded", decoded);
+        if(decoded?.id){
+          handleGetDetailUser(decoded?.id, data?.access_token)
+        }
+      }
+    }
+  }, [isSuccess])
+
+  //function get detail user
+  const handleGetDetailUser = async (id, token) => {
+    const res = await UserService.getDetailUser(id, token);
+    dispatch(updateUser({...res?.data, access_token: token}))
+    console.log('res user', res);
+  }
 
   const handleOnChangeEmail = (value) => {
     setEmail(value)

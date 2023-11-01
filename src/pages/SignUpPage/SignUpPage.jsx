@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { WrapperContainerLeft, WrapperContainerRight, WrapperTextBlue } from './style'
 import { Image } from 'antd'
 import InputForm from '../../components/InputForm/InputForm'
@@ -13,6 +13,7 @@ import { useNavigate } from 'react-router-dom'
 import * as UserService from '../../services/UserService'
 import { useMutationHook } from '../../hooks/useMutationHook'
 import Loading from '../../components/LoadingComponent/Loading'
+import * as message from '../../components/Message/Message'
 
 const SignUpPage = () => {
   const [ isShowPassword, setIsShowPassword] = useState(false)
@@ -24,8 +25,17 @@ const SignUpPage = () => {
   const mutation = useMutationHook(
     data => UserService.createUser(data)
   )
-  const { data, isLoading } = mutation
-  console.log("mutation", mutation);
+  const { data, isLoading, isSuccess, isError } = mutation
+  
+  // fn call API login
+  useEffect(() => {
+    if (isSuccess) {
+      message.success()
+      handleNavigateSignIn()
+    } else if (isError) {
+      message.error()
+    }
+  }, [isSuccess, isError])
 
   const handleOnChangeEmail = (value) => {
     setEmail(value)
@@ -43,7 +53,6 @@ const SignUpPage = () => {
       password,
       confirmPassword
     })
-    console.log("sign-up", email, password, confirmPassword);
   }
 
   const navigate = useNavigate()
